@@ -11,10 +11,5 @@
 
 @interface DBManager : NSObject
 
-@property (nonatomic, strong) NSString *documentsDirectory;
-@property (nonatomic, strong) NSString *databaseFileName;
-
-
 -(instancetype) initWithDatabaseFileName:(NSString *)dbFileNane;
--(void)copyDatabaseIntoDocumentsDirectory;
 @end

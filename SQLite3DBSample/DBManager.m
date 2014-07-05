@@ -8,6 +8,18 @@
 
 #import "DBManager.h"
 
+@interface DBManager()
+
+@property (nonatomic, strong) NSString *documentsDirectory;
+@property (nonatomic, strong) NSString *databaseFileName;
+
+-(void)copyDatabaseIntoDocumentsDirectory;
+
+@end
+
+
+
+
 @implementation DBManager
 
 -(instancetype) initWithDatabaseFileName:(NSString *)dbFileNane
