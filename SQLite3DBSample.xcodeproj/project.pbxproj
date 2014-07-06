@@ -23,6 +23,7 @@
 		778FA95719689D4F008B3664 /* SQLite3DBSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 778FA95619689D4F008B3664 /* SQLite3DBSampleTests.m */; };
 		778FA96119689DC1008B3664 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 778FA96019689DC1008B3664 /* libsqlite3.dylib */; };
 		778FA96419689E58008B3664 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 778FA96319689E58008B3664 /* DBManager.m */; };
+		778FA9661968D0B5008B3664 /* sampledb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 778FA9651968D0B5008B3664 /* sampledb.sql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		778FA96019689DC1008B3664 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		778FA96219689E58008B3664 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		778FA96319689E58008B3664 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		778FA9651968D0B5008B3664 /* sampledb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampledb.sql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			children = (
 				778FA93A19689D4F008B3664 /* AppDelegate.h */,
 				778FA93B19689D4F008B3664 /* AppDelegate.m */,
+				778FA9651968D0B5008B3664 /* sampledb.sql */,
 				778FA93319689D4F008B3664 /* SQLite3DBSample-Info.plist */,
 				778FA93419689D4F008B3664 /* InfoPlist.strings */,
 				778FA93719689D4F008B3664 /* main.m */,
@@ -239,6 +242,7 @@
 			files = (
 				778FA94419689D4F008B3664 /* Images.xcassets in Resources */,
 				778FA93619689D4F008B3664 /* InfoPlist.strings in Resources */,
+				778FA9661968D0B5008B3664 /* sampledb.sql in Resources */,
 				778FA93F19689D4F008B3664 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
