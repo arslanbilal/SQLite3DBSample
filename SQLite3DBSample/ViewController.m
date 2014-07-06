@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DBManager.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    //DBManager *db = [[DBManager alloc] initWithDatabaseFileName:@"deneme"];
 }
 
 - (void)didReceiveMemoryWarning

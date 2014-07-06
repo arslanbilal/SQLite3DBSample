@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <sqlite3.h>
 
 @interface DBManager : NSObject
 
+@property (nonatomic, strong) NSMutableArray *arrColumnNames;
+@property (nonatomic) int affectedRows;
+@property (nonatomic) long long lastInsertedRowID;
+
 -(instancetype) initWithDatabaseFileName:(NSString *)dbFileNane;
+-(NSArray *)loadDataFromDB:(NSString *)query;   //  select query.
+-(void)executeQuery:(NSString *)query;          //  insert, update, delete queries.
 @end
