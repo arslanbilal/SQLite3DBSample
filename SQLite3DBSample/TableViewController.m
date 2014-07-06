@@ -37,7 +37,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)addNewRecord:(id)sender {
+- (IBAction)addNewRecord:(id)sender
+{
+    [self performSegueWithIdentifier:@"idSegueEditInfo" sender:self];
 }
 
 #pragma mark - Table view data source

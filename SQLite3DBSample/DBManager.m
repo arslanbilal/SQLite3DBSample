@@ -92,16 +92,16 @@
     
     
     //  Open the database with result.
-    BOOL openDatabaseResult = sqlite3_open([databasePath UTF8String], &sqlite3Database);
+    int openDatabaseResult = sqlite3_open([databasePath UTF8String], &sqlite3Database);
     
     //  Open the database
     if (openDatabaseResult == SQLITE_OK)
     {
         //  Declare a sqlite3_stmt object in which will be stored the query after having been compiled into a SQLite statement.
         sqlite3_stmt *compiledStatement;
-        
+
         //  Load all data from database to memory or load the affedtedRows.
-        BOOL prepareStatementResult = sqlite3_prepare_v2(sqlite3Database, query, -1, &compiledStatement, NULL);
+        int prepareStatementResult = sqlite3_prepare(sqlite3Database, query , -1, &compiledStatement, NULL);
         
         if (prepareStatementResult == SQLITE_OK)
         {
@@ -155,7 +155,7 @@
                 //  This is the case of an executable query(insert, update, delete, ...)
                 
                 //  Execute the query.
-                BOOL executeQueryResults = sqlite3_step(compiledStatement);
+                int executeQueryResults = sqlite3_step(compiledStatement);
                 if (executeQueryResults == SQLITE_DONE)
                 {
                     // Keep the affected rows.

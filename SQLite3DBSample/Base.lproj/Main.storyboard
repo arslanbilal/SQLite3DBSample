@@ -47,7 +47,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NNj-1W-V7s">
                             <color key="tintColor" red="1" green="0.50196078431372548" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="addNewRecord:" destination="PRi-bY-LxT" id="h1s-Np-kH9"/>
+                                <action selector="addNewRecord:" destination="PRi-bY-LxT" id="qxa-kq-qpz"/>
                                 <segue destination="deP-Ga-Oav" kind="push" id="yPp-SL-cNT"/>
                             </connections>
                         </barButtonItem>
@@ -109,7 +109,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="txtAge" destination="unI-9w-TDK" id="N8g-S1-MPt"/>
-                        <outlet property="txtFirstName" destination="QdG-xq-9IC" id="rRI-L1-Hxl"/>
+                        <outlet property="txtFirstname" destination="QdG-xq-9IC" id="8wC-0q-m5G"/>
                         <outlet property="txtLastname" destination="k6N-uP-1pi" id="j36-Mr-bKH"/>
                     </connections>
                 </viewController>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		773F043A1969F9950090774B /* db.sql in Resources */ = {isa = PBXBuildFile; fileRef = 773F04391969F9950090774B /* db.sql */; };
 		778FA92C19689D4F008B3664 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778FA92B19689D4F008B3664 /* Foundation.framework */; };
 		778FA92E19689D4F008B3664 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778FA92D19689D4F008B3664 /* CoreGraphics.framework */; };
 		778FA93019689D4F008B3664 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778FA92F19689D4F008B3664 /* UIKit.framework */; };
@@ -22,7 +23,6 @@
 		778FA95719689D4F008B3664 /* SQLite3DBSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 778FA95619689D4F008B3664 /* SQLite3DBSampleTests.m */; };
 		778FA96119689DC1008B3664 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 778FA96019689DC1008B3664 /* libsqlite3.dylib */; };
 		778FA96419689E58008B3664 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 778FA96319689E58008B3664 /* DBManager.m */; };
-		778FA9661968D0B5008B3664 /* sampledb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 778FA9651968D0B5008B3664 /* sampledb.sql */; };
 		778FA9691968D2C5008B3664 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 778FA9681968D2C5008B3664 /* TableViewController.m */; };
 		778FA96C1968D41A008B3664 /* EditInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 778FA96B1968D41A008B3664 /* EditInfoViewController.m */; };
 /* End PBXBuildFile section */
@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		773F04391969F9950090774B /* db.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sql; sourceTree = SOURCE_ROOT; };
 		778FA92819689D4F008B3664 /* SQLite3DBSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SQLite3DBSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		778FA92B19689D4F008B3664 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		778FA92D19689D4F008B3664 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,7 +59,6 @@
 		778FA96019689DC1008B3664 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		778FA96219689E58008B3664 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		778FA96319689E58008B3664 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
-		778FA9651968D0B5008B3664 /* sampledb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampledb.sql; sourceTree = "<group>"; };
 		778FA9671968D2C5008B3664 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		778FA9681968D2C5008B3664 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		778FA96A1968D41A008B3664 /* EditInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInfoViewController.h; sourceTree = "<group>"; };
@@ -141,7 +141,6 @@
 			children = (
 				778FA93A19689D4F008B3664 /* AppDelegate.h */,
 				778FA93B19689D4F008B3664 /* AppDelegate.m */,
-				778FA9651968D0B5008B3664 /* sampledb.sql */,
 				778FA93319689D4F008B3664 /* SQLite3DBSample-Info.plist */,
 				778FA93419689D4F008B3664 /* InfoPlist.strings */,
 				778FA93719689D4F008B3664 /* main.m */,
@@ -171,6 +170,7 @@
 		778FA96D1968D427008B3664 /* Database Files */ = {
 			isa = PBXGroup;
 			children = (
+				773F04391969F9950090774B /* db.sql */,
 				778FA96219689E58008B3664 /* DBManager.h */,
 				778FA96319689E58008B3664 /* DBManager.m */,
 			);
@@ -255,7 +255,7 @@
 			files = (
 				778FA94419689D4F008B3664 /* Images.xcassets in Resources */,
 				778FA93619689D4F008B3664 /* InfoPlist.strings in Resources */,
-				778FA9661968D0B5008B3664 /* sampledb.sql in Resources */,
+				773F043A1969F9950090774B /* db.sql in Resources */,
 				778FA93F19689D4F008B3664 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +484,7 @@
 				778FA95C19689D4F008B3664 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		778FA95D19689D4F008B3664 /* Build configuration list for PBXNativeTarget "SQLite3DBSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +493,7 @@
 				778FA95F19689D4F008B3664 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

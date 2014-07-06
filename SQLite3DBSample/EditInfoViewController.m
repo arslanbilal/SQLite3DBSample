@@ -7,8 +7,11 @@
 //
 
 #import "EditInfoViewController.h"
+#import "DBManager.h"
 
 @interface EditInfoViewController ()
+
+@property (nonatomic, strong) DBManager *dbManager;
 
 @end
 
@@ -26,7 +29,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    //  Make self the delegate of the textfields.
+    self.txtFirstname.delegate = self;
+    self.txtLastname.delegate = self;
+    self.txtAge.delegate = self;
+    
+    //  Initialize the dbManager object.
+    self.dbManager = [[DBManager alloc] initWithDatabaseFileName:@"db.sql"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,17 +45,35 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+#pragma mark - TextField Delegate Method
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [textField resignFirstResponder];
+    return YES;
 }
-*/
 
-- (IBAction)saveInfo:(id)sender {
+
+#pragma mark - Action Method
+- (IBAction)saveInfo:(id)sender
+{
+    //  Prepare the query string.
+    NSString *query = [NSString stringWithFormat:@"insert into peopleInfo values(null, '%@', '%@', %d)", self.txtFirstname.text, self.txtLastname.text, [self.txtAge.text intValue]];
+    NSLog(@"The query is: %@",query);
+    
+    //  Execute the query.
+    [self.dbManager executeQuery:query];
+    
+    //  If the query was succesfully executed then pop the view controller.
+    if (self.dbManager.affectedRows != 0) {
+        NSLog(@"Query was executed successfully. Affacted rows = %d", self.dbManager.affectedRows);
+        
+        //  Pop the view controller.
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else
+    {
+        NSLog(@"Could not execute the query");
+    }
 }
+
 @end

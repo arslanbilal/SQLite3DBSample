@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditInfoViewController : UIViewController
+@interface EditInfoViewController : UIViewController <UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *txtFirstName;
+@property (weak, nonatomic) IBOutlet UITextField *txtFirstname;
 @property (weak, nonatomic) IBOutlet UITextField *txtLastname;
 @property (weak, nonatomic) IBOutlet UITextField *txtAge;
 
