@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) DBManager *dbManager;
 @property (nonatomic, strong) NSArray *arrPeopleInfo;
+@property (nonatomic) int recordIDToEdit;
 
 -(void) loadData;
 @end
@@ -48,7 +49,18 @@
 
 - (IBAction)addNewRecord:(id)sender
 {
+    // Before performing the segue, set the -1 value to the recordIDToEdit. That way we'll indicate that we want to add a new record and not to edit an existing one.
+    self.recordIDToEdit = -1;
+    
     [self performSegueWithIdentifier:@"idSegueEditInfo" sender:self];
+}
+
+#pragma mark - Segue for reload data
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    EditInfoViewController *editInfoVC = [segue destinationViewController];
+    editInfoVC.delegate = self;
+    editInfoVC.recordIDToEdit = self.recordIDToEdit;
 }
 
 #pragma mark - Private Method - Select Statement
@@ -65,6 +77,13 @@
     
     //  Reload the table view.
     [self.tableView reloadData];
+}
+
+#pragma mark - EditInfoVC Delegate Method
+-(void)editingInfoWasFinished
+{
+    //  Reload the data.
+    [self loadData];
 }
 
 #pragma mark - Tableview Datasource Methods
@@ -97,18 +116,13 @@
     return cell;
 }
 
-#pragma mark - EditInfoVC Delegate Method
--(void)editingInfoWasFinished
-{
-    //  Reload the data.
-    [self loadData];
-}
-
-#pragma mark - Segue for reload data
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    EditInfoViewController *editInfoVC = [segue destinationViewController];
-    editInfoVC.delegate = self;
+#pragma mark - Tableview Delegate Method
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    // Get the record ID of the selected name and set it to the recordIDToEdit property.
+    self.recordIDToEdit = [[[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:0] intValue];
+    
+    // Perform the segue.
+    [self performSegueWithIdentifier:@"idSegueEditInfo" sender:self];
 }
 
 @end

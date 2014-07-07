@@ -48,7 +48,6 @@
                             <color key="tintColor" red="1" green="0.50196078431372548" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="addNewRecord:" destination="PRi-bY-LxT" id="qxa-kq-qpz"/>
-                                <segue destination="deP-Ga-Oav" kind="push" id="yPp-SL-cNT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -138,7 +137,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="IRo-cm-eA0"/>
-    </inferredMetricsTieBreakers>
 </document>

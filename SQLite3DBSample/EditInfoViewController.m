@@ -10,10 +10,11 @@
 #import "DBManager.h"
 
 @interface EditInfoViewController ()
-
 @property (nonatomic, strong) DBManager *dbManager;
 
+-(void)loadInfoToEdit;
 @end
+
 
 @implementation EditInfoViewController
 
@@ -37,6 +38,13 @@
     
     //  Initialize the dbManager object.
     self.dbManager = [[DBManager alloc] initWithDatabaseFileName:@"db.sql"];
+    
+    //  Check if shoul load specific record to edit.
+    if (self.recordIDToEdit != -1)
+    {
+        //  Load the record with the specific ID from database.
+        [self loadInfoToEdit];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,7 +64,20 @@
 - (IBAction)saveInfo:(id)sender
 {
     //  Prepare the query string.
-    NSString *query = [NSString stringWithFormat:@"insert into peopleInfo values(null, '%@', '%@', %d)", self.txtFirstname.text, self.txtLastname.text, [self.txtAge.text intValue]];
+    //  If the recordIDToEdit property has value other than -1, then create an update query. Otherwise create an insert query.
+    NSString *query;
+    
+    if (self.recordIDToEdit == -1)
+    {
+        query = [NSString stringWithFormat:@"insert into peopleInfo values(null, '%@', '%@', %d)", self.txtFirstname.text, self.txtLastname.text, [self.txtAge.text intValue]];
+    }
+    else
+    {
+        query = [NSString stringWithFormat:@"update peopleInfo set firstname='%@', lastname='%@', age=%d where peopleInfoID=%d", self.txtFirstname.text, self.txtLastname.text, self.txtAge.text.intValue, self.recordIDToEdit];
+    }
+    
+    
+    
     NSLog(@"The query is: %@",query);
     
     //  Execute the query.
@@ -78,4 +99,21 @@
     }
 }
 
+#pragma  mark - PrivateData
+-(void)loadInfoToEdit
+{
+    //  Create a query
+    NSString *query = [NSString stringWithFormat:@"select * from peopleInfo where peopleInfoID=%d",self.recordIDToEdit];
+    
+    //  Load the relevant data.
+    NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDBWithQuery:query]];
+    
+    //  Set the loaded data to the textfields.
+    self.txtFirstname.text = [[results objectAtIndex:0] objectAtIndex:1];
+    self.txtLastname.text = [[results objectAtIndex:0] objectAtIndex:2];
+    self.txtAge.text = [[results objectAtIndex:0] objectAtIndex:3];
+    
+    
+    
+}
 @end
