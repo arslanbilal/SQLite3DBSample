@@ -23,6 +23,7 @@
 
 @implementation DBManager
 
+#pragma mark - Custom Init
 -(instancetype) initWithDatabaseFileName:(NSString *)dbFileNane
 {
     self = [super init];
@@ -42,7 +43,7 @@
     return self;
 }
 
-//  Private Method
+#pragma mark - Private Methods
 -(void)copyDatabaseIntoDocumentsDirectory
 {
     //  Check if the database file exists in the documents directory.
@@ -60,7 +61,6 @@
     }
 }
 
-//  Private Method
 -(void)runQuery:(const char *)query isQueryExecutable:(BOOL)queryExecutable
 {
     //  Create a sqlite object.
@@ -185,8 +185,9 @@
     sqlite3_close(sqlite3Database);
 }
 
+#pragma mark - Public Methods
 //  Public Method -> select query.
--(NSArray *)loadDataFromDB:(NSString *)query
+-(NSArray *)loadDataFromDBWithQuery:(NSString *)query
 {
     // Run the query and indicate that is not executable.
     // The query string is converted to a char* object.

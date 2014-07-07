@@ -15,6 +15,6 @@
 @property (nonatomic) long long lastInsertedRowID;
 
 -(instancetype) initWithDatabaseFileName:(NSString *)dbFileNane;
--(NSArray *)loadDataFromDB:(NSString *)query;   //  select query.
+-(NSArray *)loadDataFromDBWithQuery:(NSString *)query;   //  select query.
 -(void)executeQuery:(NSString *)query;          //  insert, update, delete queries.
 @end
