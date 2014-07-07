@@ -66,6 +66,9 @@
     if (self.dbManager.affectedRows != 0) {
         NSLog(@"Query was executed successfully. Affacted rows = %d", self.dbManager.affectedRows);
         
+        //  Inform the delegate that editing was finished.
+        [self.delegate editingInfoWasFinished];
+        
         //  Pop the view controller.
         [self.navigationController popViewControllerAnimated:YES];
     }

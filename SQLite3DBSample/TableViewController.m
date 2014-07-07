@@ -67,8 +67,7 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - Table view data source
-
+#pragma mark - Tableview Datasource Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -98,5 +97,18 @@
     return cell;
 }
 
+#pragma mark - EditInfoVC Delegate Method
+-(void)editingInfoWasFinished
+{
+    //  Reload the data.
+    [self loadData];
+}
+
+#pragma mark - Segue for reload data
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    EditInfoViewController *editInfoVC = [segue destinationViewController];
+    editInfoVC.delegate = self;
+}
 
 @end
