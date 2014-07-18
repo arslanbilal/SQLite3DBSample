@@ -24,7 +24,7 @@
 @implementation DBManager
 
 #pragma mark - Custom Init
--(instancetype) initWithDatabaseFileName:(NSString *)dbFileNane
+-(instancetype) initWithDatabaseFileName:(NSString *)dbFileName
 {
     self = [super init];
     
@@ -35,7 +35,7 @@
         self.documentsDirectory = [paths objectAtIndex:0];
         
         //  Keep the database filename.
-        self.databaseFileName = dbFileNane;
+        self.databaseFileName = dbFileName;
         
         //  Copy the databse file into the documents directory if necessary.
         [self copyDatabaseIntoDocumentsDirectory];

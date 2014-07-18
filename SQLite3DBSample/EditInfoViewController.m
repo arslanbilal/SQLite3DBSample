@@ -39,7 +39,7 @@
     //  Initialize the dbManager object.
     self.dbManager = [[DBManager alloc] initWithDatabaseFileName:@"db.sql"];
     
-    //  Check if shoul load specific record to edit.
+    //  Check if should load specific record to edit.
     if (self.recordIDToEdit != -1)
     {
         //  Load the record with the specific ID from database.
@@ -99,7 +99,7 @@
     }
 }
 
-#pragma  mark - PrivateData
+#pragma  mark - Private Method
 -(void)loadInfoToEdit
 {
     //  Create a query
@@ -112,8 +112,5 @@
     self.txtFirstname.text = [[results objectAtIndex:0] objectAtIndex:1];
     self.txtLastname.text = [[results objectAtIndex:0] objectAtIndex:2];
     self.txtAge.text = [[results objectAtIndex:0] objectAtIndex:3];
-    
-    
-    
 }
 @end

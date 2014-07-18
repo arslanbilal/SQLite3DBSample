@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "EditInfoViewController.h"
 
-@interface TableViewController : UITableViewController<EditInfoViewControllerDelegate>
+@interface TableViewController : UITableViewController
+<EditInfoViewControllerDelegate>
 
 - (IBAction)addNewRecord:(id)sender;
 @end
