@@ -6,6 +6,7 @@ SQLite3 database example app.
 This project also include basic DBManager sqlite class. This class is usable for any project. Class is flexiable and powerful.
 
 <h4>How to use SQLite Database Class?</h4>
+
   1. copy your project DBManager.h and DBManager.m
   2. import your class
   3. define a DBManager property
